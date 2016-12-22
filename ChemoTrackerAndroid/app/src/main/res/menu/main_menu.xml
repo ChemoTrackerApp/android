@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="chemotracker.fydp.chemotrackerandroid.MainActivity">
+    <item
+        android:id="@+id/action_menu"
+        android:orderInCategory="100"
+        android:title="Menu"
+        android:icon="@drawable/ic_menu"
+        app:showAsAction="ifRoom">
+    </item>
+    <item
+        android:id="@+id/action_add_entry"
+        android:orderInCategory="300"
+        android:title="Add Entry"
+        android:icon="@drawable/ic_add"
+        app:showAsAction="ifRoom">
+
+    </item>
+
+</menu>
