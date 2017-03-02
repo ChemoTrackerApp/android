@@ -1,5 +1,6 @@
 package chemotracker.fydp.chemotrackerandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -30,11 +31,24 @@ public class MainActivity extends AppCompatActivity {
 
     private CalendarView calendarScheduleView;
     private Toolbar headerbar;
+    private static String username, password;
 
     private Calendar currentDate;
 
     //Model
     private ScheduleCalendar scheduleCalendar;
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+        Bundle b = new Bundle();
+        b.putString("username",username);
+        b.putString("password",password);
+        intent.putExtras(b);
+        startActivity(intent);
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

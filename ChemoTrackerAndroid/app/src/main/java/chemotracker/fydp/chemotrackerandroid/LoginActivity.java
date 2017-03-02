@@ -137,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            showProgress(true);
+            //showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
         }
@@ -219,10 +219,10 @@ public class LoginActivity extends AppCompatActivity {
         protected void onPostExecute(final Boolean success) {
             mAuthTask = null;
             Log.d(TAG,"OnPostExecute");
-            showProgress(false);
+            //showProgress(false);
 
             if (success) {
-                Intent intent = new Intent(LoginActivity.this, ScheduleCalendar.class);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 Bundle b = new Bundle();
                 b.putString("username",mEmail);
                 b.putString("password",mPassword);
