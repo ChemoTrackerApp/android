@@ -10,4 +10,34 @@ public class ScheduleCalendar {
     public ScheduleCalendar() {
         scheduleMap = new HashMap<Date, Schedule>();
     }
+
+    public void addEvent(Date d, Event e) {
+        if (scheduleMap.containsKey(d)) {
+            Schedule schedule = scheduleMap.get(d);
+            schedule.addEvent(e);
+        } else {
+            Schedule schedule = new Schedule(d);
+            schedule.addEvent(e);
+            scheduleMap.put(d, schedule);
+        }
+    }
+
+    public void deleteEvent(Date d, Event e) {
+        if (scheduleMap.containsKey(d)) {
+            Schedule schedule = scheduleMap.get(d);
+            schedule.removeEvent(e);
+        }
+    }
+
+    public Map<Date, Schedule> getScheduleMap() {
+        return scheduleMap;
+    }
+
+    public Schedule getSchedule(Date d) {
+        if (scheduleMap.containsKey(d)) {
+            Schedule schedule = scheduleMap.get(d);
+            return schedule;
+        }
+        return null;
+    }
 }
