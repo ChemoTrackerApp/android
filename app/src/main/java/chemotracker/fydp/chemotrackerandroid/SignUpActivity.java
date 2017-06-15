@@ -22,7 +22,6 @@ import butterknife.InjectView;
 public class SignUpActivity extends AppCompatActivity {
     private static final String TAG = "SignUpActivity";
 
-    @InjectView(R.id.name_input) EditText nameText;
     @InjectView(R.id.email_input) EditText emailText;
     @InjectView(R.id.password_input) EditText passwordText;
     @InjectView(R.id.signup_button) Button signupButton;
@@ -66,14 +65,13 @@ public class SignUpActivity extends AppCompatActivity {
         progressDialog.setMessage("Creating Account...");
         progressDialog.show();
 
-        // TODO: Implement your own signup logic here.
+        // TODO: Implement signup logic here.
 
         new android.os.Handler().postDelayed(
             new Runnable() {
                 public void run() {
                     // On complete call either onSignupSuccess or onSignupFailed
                     // depending on success
-                    String name = nameText.getText().toString();
                     String email = emailText.getText().toString();
                     String password = passwordText.getText().toString();
                     onSignupSuccess(email, password);
@@ -104,16 +102,8 @@ public class SignUpActivity extends AppCompatActivity {
     public boolean validate() {
         boolean valid = true;
 
-        String name = nameText.getText().toString();
         String email = emailText.getText().toString();
         String password = passwordText.getText().toString();
-
-        if (name.isEmpty() || name.length() < 3) {
-            nameText.setError("at least 3 characters");
-            valid = false;
-        } else {
-            nameText.setError(null);
-        }
 
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             emailText.setError("enter a valid email address");

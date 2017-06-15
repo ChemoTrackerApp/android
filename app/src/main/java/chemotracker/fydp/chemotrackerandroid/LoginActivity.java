@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.show();
 
 
-        // TODO: Implement your own authentication logic here.
+        // TODO: Implement authentication logic here.
 
         new android.os.Handler().postDelayed(
             new Runnable() {
@@ -87,7 +87,6 @@ public class LoginActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
 
                 // TODO: Implement successful signup logic here
-                // By default we just finish the Activity and log them in automatically
                 this.finish();
             }
         }
