@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="chemotracker.fydp.chemotrackerandroid.MainActivity">
+    tools:context="chemotracker.fydp.chemotrackerandroid.CalendarActivity">
     <item
         android:id="@+id/action_menu"
         android:orderInCategory="100"

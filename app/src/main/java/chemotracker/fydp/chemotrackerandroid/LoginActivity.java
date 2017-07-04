@@ -222,7 +222,7 @@ public class LoginActivity extends AppCompatActivity {
             //showProgress(false);
 
             if (success) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, CalendarActivity.class);
                 Bundle b = new Bundle();
                 b.putString("username",mEmail);
                 b.putString("password",mPassword);

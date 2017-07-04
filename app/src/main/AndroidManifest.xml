@@ -24,5 +24,8 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme"></activity>
+        <activity android:name=".CalendarActivity"
+            android:label="CalendarActivity"
+            android:theme="@style/AppTheme"></activity>
     </application>
 </manifest>
