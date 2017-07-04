@@ -9,7 +9,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="45dp"
+        android:paddingTop="56dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
@@ -23,6 +23,19 @@
             android:layout_gravity="center_horizontal"
             android:contentDescription="Logo"/>
 
+        <!--  Name Label -->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+            <EditText android:id="@+id/name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords"
+                android:hint="Name" />
+        </android.support.design.widget.TextInputLayout>
+
         <!-- Email Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -33,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:hint="@string/prompt_email" />
+                android:hint="Email" />
         </android.support.design.widget.TextInputLayout>
 
         <!-- Password Label -->
@@ -46,20 +59,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="@string/prompt_password"/>
+                android:hint="Password"/>
         </android.support.design.widget.TextInputLayout>
 
+        <!-- Signup Button -->
         <Button
-            android:id="@+id/login_button"
+            android:id="@+id/signup_button"
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/title_activity_login"
+            android:text="@string/signup_button_text"
             android:background="@drawable/border_button"
             tools:layout_width="wrap_content"
             android:textAlignment="center"
-            tools:textColor="@android:color/white"
             android:textSize="24sp"
             android:textColorHighlight="@android:color/background_light"
             android:layout_gravity="center_horizontal"
@@ -69,12 +82,12 @@
             android:paddingLeft="20dp"
             android:textColor="@android:color/white" />
 
-        <TextView android:id="@+id/link_signup"
+        <TextView android:id="@+id/link_login"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
-            android:text="@string/signup_text"
+            android:text="@string/signup_to_login"
             android:gravity="center"
             android:textSize="16sp"/>
 
