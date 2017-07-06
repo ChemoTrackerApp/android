@@ -2,6 +2,7 @@
     <string name="app_name">ChemoTrackerAndroid</string>
     <string name="title_activity_login">LOGIN</string>
     <string name="title_activity_signup">SIGNUP</string>
+    <string name="title_activity_profile">PROFILE</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -19,4 +20,7 @@
     <string name="signup_button_text">"Create Account"</string>
     <string name="signup_to_login">"Already a member? Login"</string>
     <string name="title_activity_main">MainActivity</string>
+
+    <!-- Strings related to profile-->
+    <string name="profile_name">"User Name"</string>
 </resources>

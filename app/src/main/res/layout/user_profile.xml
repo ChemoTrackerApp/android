@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="@color/colorBackground">
+
+    <include android:id="@+id/header_bar"
+        layout="@layout/header_bar">
+    </include>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:src="@drawable/anon"
+            android:layout_marginTop="30dp"
+            app:border_width="2dp"
+            app:border_color="@color/colorBackground"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray">
+
+            <TextView android:id="@+id/user_profile_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:text="@string/profile_name"
+                android:gravity="center"
+                android:textSize="24sp"/>
+        </android.support.design.widget.TextInputLayout>
+
+</LinearLayout>
