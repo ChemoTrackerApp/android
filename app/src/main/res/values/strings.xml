@@ -22,5 +22,8 @@
     <string name="title_activity_main">MainActivity</string>
 
     <!-- Strings related to profile-->
-    <string name="profile_name">"User Name"</string>
+    <string name="user_profile_name">"User Name"</string>
+    <string name="profile_full_name">"Full Name"</string>
+    <string name="profile_diagnosis">"Diagnosis"</string>
+    <string name="profile_drug_allergies">"Drug Allergies"</string>
 </resources>
