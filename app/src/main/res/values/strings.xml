@@ -26,4 +26,14 @@
     <string name="profile_full_name">"Full Name"</string>
     <string name="profile_diagnosis">"Diagnosis"</string>
     <string name="profile_drug_allergies">"Drug Allergies"</string>
+
+    <!-- Strings related to bottom navigation bar -->
+    <string name="menu">Menu</string>
+    <string name="action_search">Search</string>
+    <string name="action_track">Symptom Tracking</string>
+    <string name="action_menu">More</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_fragment">Search Fragment</string>
+    <string name="track_fragment">Symptom Tracking Fragment</string>
+    <string name="menu_fragment">Menu</string>
 </resources>
