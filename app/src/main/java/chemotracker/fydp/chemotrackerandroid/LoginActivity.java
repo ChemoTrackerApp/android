@@ -106,6 +106,7 @@ public class LoginActivity extends AppCompatActivity {
         b.putString("password",password);
         intent.putExtras(b);
         startActivity(intent);
+        this.finish();
     }
 
     public void onLoginFailed() {
