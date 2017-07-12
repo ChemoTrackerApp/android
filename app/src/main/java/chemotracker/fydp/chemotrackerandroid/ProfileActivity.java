@@ -1,5 +1,6 @@
 package chemotracker.fydp.chemotrackerandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -39,22 +40,22 @@ public class ProfileActivity extends AppCompatActivity {
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int id = item.getItemId();
-                Log.d(TAG, item.toString());
-                switch (id){
-                    case R.id.action_search:
-                        fragment = new SearchFragment();
-                        break;
-                    case R.id.action_track:
-                        fragment = new TrackFragment();
-                        break;
-                    case R.id.action_menu:
-                        fragment = new MenuFragment();
-                        break;
-                }
-                final FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.replace(R.id.main_container, fragment).commit();
-                return true;
+            int id = item.getItemId();
+            Log.d(TAG, item.toString());
+            switch (id){
+                case R.id.action_track:
+                    fragment = new TrackFragment();
+                    break;
+                case R.id.action_calendar:
+                    fragment = new CalendarFragment();
+                    break;
+                case R.id.action_more:
+                    fragment = new MoreFragment();
+                    break;
+            }
+            final FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.main_container, fragment).commit();
+            return true;
             }
         });
     }

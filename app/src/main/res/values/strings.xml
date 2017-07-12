@@ -29,11 +29,14 @@
 
     <!-- Strings related to bottom navigation bar -->
     <string name="menu">Menu</string>
+    <string name="action_home">Home</string>
+    <string name="action_calendar">Calendar</string>
     <string name="action_search">Search</string>
     <string name="action_track">Symptom Tracking</string>
-    <string name="action_menu">More</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="search_fragment">Search Fragment</string>
-    <string name="track_fragment">Symptom Tracking Fragment</string>
-    <string name="menu_fragment">Menu</string>
+    <string name="action_more">More</string>
+    <string name="home_fragment">Home</string>
+    <string name="search_fragment">Search</string>
+    <string name="calendar_fragment">Calendar</string>
+    <string name="track_fragment">Symptom Tracking</string>
+    <string name="more_fragment">More</string>
 </resources>

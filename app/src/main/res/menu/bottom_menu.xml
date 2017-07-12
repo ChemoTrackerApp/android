@@ -3,11 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_search"
-        android:title="@string/action_search"
+        android:id="@+id/action_home"
+        android:title="@string/action_home"
         app:showAsAction="ifRoom"
         android:enabled="true"
-        android:icon="@drawable/search_icon">
+        android:icon="@drawable/home_icon">
     </item>
     <item
         android:id="@+id/action_track"
@@ -17,8 +17,15 @@
         android:icon="@drawable/tracker_icon">
     </item>
     <item
-        android:id="@+id/action_menu"
-        android:title="@string/action_menu"
+        android:id="@+id/action_calendar"
+        android:title="@string/action_calendar"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@drawable/calendar_icon">
+    </item>
+    <item
+        android:id="@+id/action_more"
+        android:title="@string/action_more"
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:icon="@drawable/more_icon">
