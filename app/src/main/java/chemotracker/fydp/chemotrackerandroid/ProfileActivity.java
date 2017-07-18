@@ -36,6 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.user_profile);
         ButterKnife.inject(this);
         bottomNavigation.inflateMenu(R.menu.bottom_menu);
+		BottomNavigationViewHelper.removeShiftMode(bottomNavigation);
         fragmentManager = getSupportFragmentManager();
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
