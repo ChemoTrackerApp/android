@@ -1,4 +1,4 @@
-package chemotracker.fydp.chemotrackerandroid;
+package com.innovare.chemotracker;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

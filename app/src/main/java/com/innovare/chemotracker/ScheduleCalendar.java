@@ -1,4 +1,4 @@
-package chemotracker.fydp.chemotrackerandroid;
+package com.innovare.chemotracker;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ public class ScheduleCalendar {
         scheduleMap = new HashMap<Date, Schedule>();
     }
 
-    public void addEvent(Date d, Event e) {
+    public void addEvent(Date d, CalendarEvent e) {
         if (scheduleMap.containsKey(d)) {
             Schedule schedule = scheduleMap.get(d);
             schedule.addEvent(e);
@@ -22,7 +22,7 @@ public class ScheduleCalendar {
         }
     }
 
-    public void deleteEvent(Date d, Event e) {
+    public void deleteEvent(Date d, CalendarEvent e) {
         if (scheduleMap.containsKey(d)) {
             Schedule schedule = scheduleMap.get(d);
             schedule.removeEvent(e);

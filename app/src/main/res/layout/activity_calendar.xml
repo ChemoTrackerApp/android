@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"
+        android:id="@+id/parent"
+        tools:context=".CalendarActivity">
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" />
+
+        <com.github.sundeepk.compactcalendarview.CompactCalendarView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/compactcalendar_view"
+            android:layout_width="fill_parent"
+            android:layout_height="350dp"
+            app:compactCalendarBackgroundColor="#FFF"
+            app:compactCalendarCurrentDayBackgroundColor="#009588"
+            app:compactCalendarCurrentDayIndicatorStyle="fill_large_indicator"
+            app:compactCalendarCurrentDayTextColor="#ffffff"
+            app:compactCalendarCurrentSelectedDayBackgroundColor="#4CB4AB"
+            app:compactCalendarCurrentSelectedDayIndicatorStyle="no_fill_large_indicator"
+            app:compactCalendarEventIndicatorStyle="small_indicator"
+            app:compactCalendarOtherMonthDaysTextColor="#534c4c"
+            app:compactCalendarShouldSelectFirstDayOfMonthOnScroll="true"
+            app:compactCalendarTargetHeight="350dp"
+            app:compactCalendarTextColor="#5e5e5e"
+            app:compactCalendarTextSize="16sp" />
+
+        <View
+            android:id="@+id/calendar_divider"
+            android:layout_below="@+id/compactcalendar_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#aeaeae"/>
+
+        <ListView
+            android:id="@+id/events_listview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/calendar_divider"
+            android:background="@android:color/white"
+            android:divider="#1a1a1a"
+            android:dividerHeight="2px" />
+    </LinearLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_add"/>
+</android.support.design.widget.CoordinatorLayout>
