@@ -9,23 +9,34 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:scrollbars="vertical"
-    tools:context="chemotracker.fydp.chemotrackerandroid.MainActivity">
+    tools:context="com.innovare.chemotracker.MainActivity">
 
-    <include android:id="@+id/header_bar"
-        layout="@layout/header_bar">
-    </include>
+    <include
+        android:id="@+id/header_bar"
+        layout="@layout/header_bar"></include>
 
     <CalendarView
         android:id="@+id/calendarScheduleView"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginBottom="16dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
-    <ListView
+    <Button
+        android:id="@+id/buttonTest"
+        android:layout_width="match_parent"
+        android:layout_height="25dp" />
+
+    <TextView
+        android:id="@+id/textTest"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+
+    <!--<ListView
         android:id="@+id/calendarScheduleList"
         android:layout_width="match_parent"
         android:layout_height="200dp" >
-    </ListView>
+    </ListView>-->
 
 </LinearLayout>

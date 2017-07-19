@@ -10,4 +10,6 @@
     <color name="colorDivider">#2FE897</color>
     <color name="colorBorder">#a7a4a4</color>
     <color name="colorExtra">#fffac1</color>
+    <color name="black">#000000</color>
+    <color name="dark_red">#B71C1C</color>
 </resources>
