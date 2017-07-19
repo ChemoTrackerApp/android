@@ -1,4 +1,4 @@
-package chemotracker.fydp.chemotrackerandroid;
+package com.innovare.chemotracker;
 
 import org.junit.Test;
 

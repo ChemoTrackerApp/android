@@ -1,4 +1,4 @@
-package chemotracker.fydp.chemotrackerandroid;
+package com.innovare.chemotracker;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,9 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
-import android.widget.ListView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,7 +15,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -73,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
 
                 // I dont know how to do this!!
 //                Schedule s = scheduleCalendar.getSchedule(currentDate.getTime());
-//                ArrayList<Event> eventList = s.getEventList();
+//                ArrayList<CalendarEvent> eventList = s.getEventList();
 //                List<String> eventNames = new ArrayList<String>();
-//                for (Event e: eventList) {
+//                for (CalendarEvent e: eventList) {
 //                    eventNames.add(e.getName());
 //                }
 //
@@ -99,21 +96,21 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onOptionsItemSelected: " + item);
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_menu) {
-            // ToDo:
-        } else if (id == R.id.action_add_entry) {
-            Log.d(TAG, "action_add_entry: " + currentDate.getTime());
-            String strDate = simpleDateFormat.format(currentDate.getTime());
-            strDate += " 10:00";
-            try {
-                Date date = simpleDateTimeFormat.parse(strDate);
-                Event newEvent = new Event(DUMMY_DATA.get(0)+ " " + counter, date, DUMMY_DATA.get(2));
-                scheduleCalendar.addEvent(currentDate.getTime(), newEvent);
-                counter++;
-            } catch (ParseException e) {
-                System.out.println("Exception: "+ e);
-            }
-        }
+//        if (id == R.id.action_menu) {
+//            // ToDo:
+//        } else if (id == R.id.action_add_entry) {
+//            Log.d(TAG, "action_add_entry: " + currentDate.getTime());
+//            String strDate = simpleDateFormat.format(currentDate.getTime());
+//            strDate += " 10:00";
+//            try {
+//                Date date = simpleDateTimeFormat.parse(strDate);
+//                CalendarEvent newEvent = new CalendarEvent(DUMMY_DATA.get(0)+ " " + counter, date, DUMMY_DATA.get(2));
+//                scheduleCalendar.addEvent(currentDate.getTime(), newEvent);
+//                counter++;
+//            } catch (ParseException e) {
+//                System.out.println("Exception: "+ e);
+//            }
+//        }
 
         return super.onOptionsItemSelected(item);
     }
