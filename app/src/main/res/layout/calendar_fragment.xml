@@ -3,12 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:id="@+id/calendar_fragment"
-    android:background="@color/colorBackground"
+    android:background="#2e7dc9"
     android:layout_height="match_parent">
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textStyle="bold"
-        android:text="@string/calendar_fragment" />
+        android:src="@drawable/calendar_white"/>
 </FrameLayout>
