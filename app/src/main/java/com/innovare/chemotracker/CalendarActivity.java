@@ -11,7 +11,6 @@ import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecovera
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
-import com.google.api.client.util.ExponentialBackOff;
 
 import com.google.api.services.calendar.CalendarScopes;
 import com.google.api.client.util.DateTime;
@@ -22,7 +21,6 @@ import com.github.sundeepk.compactcalendarview.domain.Event;
 
 import android.Manifest;
 import android.accounts.AccountManager;
-import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -43,8 +41,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import android.widget.Button;
-import android.widget.CalendarView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -72,8 +68,6 @@ public class CalendarActivity extends AppCompatActivity implements EasyPermissio
     private static final String PREF_ACCOUNT_NAME = "accountName";
     private static final String[] SCOPES = { CalendarScopes.CALENDAR_READONLY };
 
-//    private Toolbar headerbar;
-
     private Toolbar toolbar;
     private java.util.Calendar currentCalender = java.util.Calendar.getInstance(Locale.getDefault());
     private SimpleDateFormat dateFormatForDisplaying = new SimpleDateFormat("dd-M-yyyy hh:mm:ss a", Locale.getDefault());
@@ -97,7 +91,7 @@ public class CalendarActivity extends AppCompatActivity implements EasyPermissio
         final ArrayList<CalendarEvent> calendarEvents = new ArrayList<>();
         final ListView eventsListView = (ListView) findViewById(R.id.events_listview);
 
-        final EventArrayAdapter adapter = new EventArrayAdapter(getApplicationContext(), R.layout.activity_event, calendarEvents);
+        final CalendarEventArrayAdapter adapter = new CalendarEventArrayAdapter(getApplicationContext(), R.layout.activity_event, calendarEvents);
         eventsListView.setAdapter(adapter);
         compactCalendarView = (CompactCalendarView) findViewById(R.id.compactcalendar_view);
 

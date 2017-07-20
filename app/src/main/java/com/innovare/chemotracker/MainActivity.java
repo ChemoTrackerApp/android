@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CalendarView;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,6 +17,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -22,97 +27,105 @@ public class MainActivity extends AppCompatActivity {
     // Dummy Data
     private static final ArrayList<String> DUMMY_DATA = new ArrayList<String>(
             Arrays.asList("Chemotherapy", "12/24/2016 10:00", "Stouffville Hospital"));
-    private int counter;
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
-    private SimpleDateFormat simpleDateTimeFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+    private SimpleDateFormat dateFormatForMonth = new SimpleDateFormat("MMMM", Locale.getDefault());
+    private SimpleDateFormat dateFormatForDate = new SimpleDateFormat("dd", Locale.getDefault());
+    private SimpleDateFormat dateFormatForDayOfWeek = new SimpleDateFormat("EEEE", Locale.getDefault());
+    private SimpleDateFormat dateFormatForTime = new SimpleDateFormat("h:mm a", Locale.getDefault());
 
-    private CalendarView calendarScheduleView;
-    private Toolbar headerbar;
-    private static String username, password;
+//    private Toolbar toolbar;
 
-    private Calendar currentDate;
+    private Calendar currentCalendar;
+    private ArrayList<CalendarEvent> todaysEvents = new ArrayList<>();
+    private TodaysEventArrayAdapter adapter;
 
-    //Model
-    private ScheduleCalendar scheduleCalendar;
+    private ListView todaysEventsLV;
 
-    @Override
-    public void onRestart() {
-        super.onRestart();
-        Intent intent = new Intent(MainActivity.this, MainActivity.class);
-        Bundle b = new Bundle();
-        b.putString("username",username);
-        b.putString("password",password);
-        intent.putExtras(b);
-        startActivity(intent);
-        finish();
-    }
+//    private ScheduleCalendar scheduleCalendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        headerbar = (Toolbar) findViewById(R.id.header_bar);
-        setSupportActionBar(headerbar);
+//        toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
-        currentDate = Calendar.getInstance();
+        currentCalendar = Calendar.getInstance(Locale.getDefault());
+        currentCalendar.setTime(new Date());
 
-        // ToDo: Remove after
-        counter = 0;
+        TextView month_tv = (TextView) findViewById(R.id.todays_month);
+        TextView date_tv = (TextView) findViewById(R.id.todays_date);
+        TextView dayOfWeek_tv = (TextView) findViewById(R.id.todays_dayOfWeek);
 
-        scheduleCalendar = new ScheduleCalendar();
-        calendarScheduleView = (CalendarView) findViewById(R.id.calendarScheduleView);
-        calendarScheduleView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(CalendarView calendarView, int i, int i1, int i2) {
-                Log.d(TAG, "Selected date: " + i2 + "/" + (i1+1) + "/" + i);
-                currentDate.set(i, i1, i2, 0, 0);
+        String month = dateFormatForMonth.format(currentCalendar.getTime());
+        String date = dateFormatForDate.format(currentCalendar.getTime());
+        String dayOfWeek = dateFormatForDayOfWeek.format(currentCalendar.getTime());
 
-                // I dont know how to do this!!
-//                Schedule s = scheduleCalendar.getSchedule(currentDate.getTime());
-//                ArrayList<CalendarEvent> eventList = s.getEventList();
-//                List<String> eventNames = new ArrayList<String>();
-//                for (CalendarEvent e: eventList) {
-//                    eventNames.add(e.getName());
-//                }
+        month_tv.setText(month);
+        date_tv.setText(date);
+        dayOfWeek_tv.setText(dayOfWeek);
+
+        todaysEvents = new ArrayList<>();
+        todaysEventsLV = (ListView) findViewById(R.id.todays_events);
+        adapter = new TodaysEventArrayAdapter(getApplicationContext(), R.layout.today_events, todaysEvents);
+        todaysEventsLV.setAdapter(adapter);
+
+        List<CalendarEvent> tmpEvents = getDummyCalendarEvents();
+        for (CalendarEvent e: tmpEvents) {
+            todaysEvents.add(e);
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    List<CalendarEvent> getDummyCalendarEvents() {
+        String startTime1, endTime1, startTime2, endTime2;
+
+        Calendar c = Calendar.getInstance(Locale.getDefault());
+        c.clear(java.util.Calendar.HOUR_OF_DAY);
+        c.setTime(new Date());
+        c.add(Calendar.HOUR, 3);
+
+        startTime1 = dateFormatForTime.format(c.getTime());
+        c.add(Calendar.HOUR, 1);
+        endTime1 = startTime2 = dateFormatForTime.format(c.getTime());
+        c.add(Calendar.MINUTE, 45);
+        endTime2 = dateFormatForTime.format(c.getTime());
+
+        return Arrays.asList(
+                new CalendarEvent("Chemo Check-Up", "St. John's Hospital", startTime1, endTime1),
+                new CalendarEvent("Chemotherapy Session", "St. John's Hospital", startTime2, endTime2)
+        );
+    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.main_menu, menu);
+//        return true;
+//    }
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here.
+//        Log.d(TAG, "onOptionsItemSelected: " + item);
+//        int id = item.getItemId();
+//        //noinspection SimplifiableIfStatement
+////        if (id == R.id.action_menu) {
+////            // ToDo:
+////        } else if (id == R.id.action_add_entry) {
+////            Log.d(TAG, "action_add_entry: " + currentDate.getTime());
+////            String strDate = simpleDateFormat.format(currentDate.getTime());
+////            strDate += " 10:00";
+////            try {
+////                Date date = simpleDateTimeFormat.parse(strDate);
+////                CalendarEvent newEvent = new CalendarEvent(DUMMY_DATA.get(0)+ " " + counter, date, DUMMY_DATA.get(2));
+////                scheduleCalendar.addEvent(currentDate.getTime(), newEvent);
+////                counter++;
+////            } catch (ParseException e) {
+////                System.out.println("Exception: "+ e);
+////            }
+////        }
 //
-//                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, eventNames);
-//                ListView lv = (ListView)findViewById(R.layout.calendarScheduleList);
-//                lv.setAdapter(adapter);
-            }
-        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here.
-        Log.d(TAG, "onOptionsItemSelected: " + item);
-        int id = item.getItemId();
-        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_menu) {
-//            // ToDo:
-//        } else if (id == R.id.action_add_entry) {
-//            Log.d(TAG, "action_add_entry: " + currentDate.getTime());
-//            String strDate = simpleDateFormat.format(currentDate.getTime());
-//            strDate += " 10:00";
-//            try {
-//                Date date = simpleDateTimeFormat.parse(strDate);
-//                CalendarEvent newEvent = new CalendarEvent(DUMMY_DATA.get(0)+ " " + counter, date, DUMMY_DATA.get(2));
-//                scheduleCalendar.addEvent(currentDate.getTime(), newEvent);
-//                counter++;
-//            } catch (ParseException e) {
-//                System.out.println("Exception: "+ e);
-//            }
-//        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
+//        return super.onOptionsItemSelected(item);
+//    }
+//
 }

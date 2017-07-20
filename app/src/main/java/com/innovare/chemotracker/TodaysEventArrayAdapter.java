@@ -9,19 +9,16 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-//import com.github.sundeepk.compactcalendarview.domain.Event;
-
-public class EventArrayAdapter extends ArrayAdapter<CalendarEvent> {
+public class TodaysEventArrayAdapter extends ArrayAdapter<CalendarEvent> {
     private String title;
     private String location;
     private String startTime;
-    private String endTime;
 
-    private ArrayList<CalendarEvent> objects;
+    private ArrayList<CalendarEvent> events;
 
-    public EventArrayAdapter(Context context, int textViewResourceId, ArrayList<CalendarEvent> objects) {
-        super(context, textViewResourceId, objects);
-        this.objects = objects;
+    public TodaysEventArrayAdapter(Context context, int textViewResourceId, ArrayList<CalendarEvent> events) {
+        super(context, textViewResourceId, events);
+        this.events = events;
     }
 
     public View getView(int position, View convertView, ViewGroup parent){
@@ -29,16 +26,15 @@ public class EventArrayAdapter extends ArrayAdapter<CalendarEvent> {
 
         if (v == null) {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inflater.inflate(R.layout.activity_event, null);
+            v = inflater.inflate(R.layout.today_events, null);
         }
 
-        CalendarEvent i = objects.get(position);
+        CalendarEvent i = events.get(position);
 
         if (i != null) {
-            TextView title = (TextView) v.findViewById(R.id.title);
-            TextView location = (TextView) v.findViewById(R.id.location);
-            TextView startTime = (TextView) v.findViewById(R.id.start_time);
-            TextView endTime = (TextView) v.findViewById(R.id.end_time);
+            TextView title = (TextView) v.findViewById(R.id.todaysevent_title);
+            TextView location = (TextView) v.findViewById(R.id.todaysevent_location);
+            TextView startTime = (TextView) v.findViewById(R.id.todaysevent_start_time);
 
             if (title != null){
                 title.setText(i.getTitle());
@@ -49,13 +45,8 @@ public class EventArrayAdapter extends ArrayAdapter<CalendarEvent> {
             if (startTime != null){
                 startTime.setText(i.getStartTime());
             }
-            if (endTime != null){
-                endTime.setText(i.getEndTime());
-            }
         }
 
-        // the view must be returned to our activity
         return v;
     }
-
 }

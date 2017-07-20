@@ -8,35 +8,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:scrollbars="vertical"
+    android:background="#f9fbfc"
     tools:context="com.innovare.chemotracker.MainActivity">
-
-    <include
-        android:id="@+id/header_bar"
-        layout="@layout/header_bar"></include>
-
-    <CalendarView
-        android:id="@+id/calendarScheduleView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="16dp" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/layout_today">
+        <TextView
+            android:id="@+id/todays_date"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:text="99"
+            android:textAllCaps="true"
+            android:textColor="#1e3b36"
+            android:textSize="50pt" />
 
-    <Button
-        android:id="@+id/buttonTest"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp">
+            <TextView
+                android:id="@+id/todays_month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="49dp"
+                android:text="July"
+                android:textColor="#2b554e"
+                android:textSize="13pt" />
+            <TextView
+                android:id="@+id/todays_dayOfWeek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#2b554e"
+                android:textSize="9pt"
+                android:text="Tuesday" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/todays_events"
         android:layout_width="match_parent"
-        android:layout_height="25dp" />
-
-    <TextView
-        android:id="@+id/textTest"
-        android:layout_width="match_parent"
-        android:layout_height="200dp" />
-
-
-    <!--<ListView
-        android:id="@+id/calendarScheduleList"
-        android:layout_width="match_parent"
-        android:layout_height="200dp" >
-    </ListView>-->
-
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_today"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 </LinearLayout>

@@ -12,6 +12,15 @@ public class CalendarEvent {
     private String startTime;
     private String endTime;
 
+    public CalendarEvent(String title, String location, String startTime, String endTime) {
+        this.title = title;
+        this.location = location;
+        this.startTime = startTime;
+        this.endTime = endTime;
+
+        Log.d(TAG, toString());
+    }
+
     public CalendarEvent(Event event) {
         String data = (String) event.getData();
         Log.d(TAG, "data: " + data);
