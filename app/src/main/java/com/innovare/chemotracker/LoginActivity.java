@@ -100,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onLoginSuccess(String email, String password) {
         loginButton.setEnabled(true);
-        Intent intent = new Intent(LoginActivity.this, CalendarActivity.class);
+        Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
         Bundle b = new Bundle();
         b.putString("username",email);
         b.putString("password",password);
