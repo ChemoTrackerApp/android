@@ -22,7 +22,6 @@ import com.github.sundeepk.compactcalendarview.domain.Event;
 
 import android.Manifest;
 import android.accounts.AccountManager;
-import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -43,8 +42,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import android.widget.Button;
-import android.widget.CalendarView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 

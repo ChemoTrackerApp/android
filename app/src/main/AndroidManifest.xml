@@ -31,12 +31,12 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme"/>
         <activity
+            android:name="com.innovare.chemotracker.ProfileActivity"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/AppTheme"/>
+        <activity
             android:name="com.innovare.chemotracker.CalendarActivity"
-            android:label="CalendarActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:label="CalendarActivity"
+            android:theme="@style/AppTheme"/>
     </application>
 </manifest>
