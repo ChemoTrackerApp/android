@@ -1,11 +1,13 @@
 package com.innovare.chemotracker;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.view.ContextThemeWrapper;
 
 import java.util.ArrayList;
 
@@ -16,9 +18,12 @@ public class TodaysEventArrayAdapter extends ArrayAdapter<CalendarEvent> {
 
     private ArrayList<CalendarEvent> events;
 
-    public TodaysEventArrayAdapter(Context context, int textViewResourceId, ArrayList<CalendarEvent> events) {
+    private Typeface openSans;
+
+    public TodaysEventArrayAdapter(Context context, int textViewResourceId, ArrayList<CalendarEvent> events, Typeface openSans) {
         super(context, textViewResourceId, events);
         this.events = events;
+        this.openSans = openSans;
     }
 
     public View getView(int position, View convertView, ViewGroup parent){
@@ -33,8 +38,11 @@ public class TodaysEventArrayAdapter extends ArrayAdapter<CalendarEvent> {
 
         if (i != null) {
             TextView title = (TextView) v.findViewById(R.id.todaysevent_title);
+            title.setTypeface(openSans,Typeface.NORMAL);
             TextView location = (TextView) v.findViewById(R.id.todaysevent_location);
+            location.setTypeface(openSans,Typeface.NORMAL);
             TextView startTime = (TextView) v.findViewById(R.id.todaysevent_start_time);
+            startTime.setTypeface(openSans,Typeface.NORMAL);
 
             if (title != null){
                 title.setText(i.getTitle());

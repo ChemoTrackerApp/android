@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#f9fbfc"
+    android:background="#ffffff"
     tools:context="com.innovare.chemotracker.MainActivity">
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:layout_marginLeft="20dp"
             android:text="99"
             android:textAllCaps="true"
-            android:textColor="#1e3b36"
+            android:textColor="@color/black"
             android:textSize="50pt" />
 
         <LinearLayout
@@ -36,13 +36,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="49dp"
                 android:text="July"
-                android:textColor="#2b554e"
+                android:textColor="@color/black"
                 android:textSize="13pt" />
             <TextView
                 android:id="@+id/todays_dayOfWeek"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#2b554e"
+                android:textColor="@color/black"
                 android:textSize="9pt"
                 android:text="Tuesday" />
         </LinearLayout>
@@ -51,7 +51,7 @@
     <ListView
         android:id="@+id/todays_events"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_below="@+id/layout_today"
         android:layout_marginTop="23dp"
         android:layout_marginBottom="50dp"

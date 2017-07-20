@@ -1,6 +1,7 @@
 package com.innovare.chemotracker;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -23,6 +24,8 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
+
+    private Typeface openSans;
 
     // Dummy Data
     private static final ArrayList<String> DUMMY_DATA = new ArrayList<String>(
@@ -50,12 +53,17 @@ public class MainActivity extends AppCompatActivity {
 //        toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 
+        openSans = Typeface.createFromAsset(getAssets(), "fonts/OpenSans-Regular.ttf");
+
         currentCalendar = Calendar.getInstance(Locale.getDefault());
         currentCalendar.setTime(new Date());
 
         TextView month_tv = (TextView) findViewById(R.id.todays_month);
+        month_tv.setTypeface(openSans,Typeface.NORMAL);
         TextView date_tv = (TextView) findViewById(R.id.todays_date);
+        date_tv.setTypeface(openSans,Typeface.NORMAL);
         TextView dayOfWeek_tv = (TextView) findViewById(R.id.todays_dayOfWeek);
+        dayOfWeek_tv.setTypeface(openSans,Typeface.NORMAL);
 
         String month = dateFormatForMonth.format(currentCalendar.getTime());
         String date = dateFormatForDate.format(currentCalendar.getTime());
@@ -67,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
         todaysEvents = new ArrayList<>();
         todaysEventsLV = (ListView) findViewById(R.id.todays_events);
-        adapter = new TodaysEventArrayAdapter(getApplicationContext(), R.layout.today_events, todaysEvents);
+        adapter = new TodaysEventArrayAdapter(getApplicationContext(), R.layout.today_events, todaysEvents, openSans);
         todaysEventsLV.setAdapter(adapter);
 
         List<CalendarEvent> tmpEvents = getDummyCalendarEvents();
