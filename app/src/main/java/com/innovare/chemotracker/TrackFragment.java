@@ -1,4 +1,4 @@
-package chemotracker.fydp.chemotrackerandroid;
+package com.innovare.chemotracker;
 
 /**
  * Created by Janice on 7/10/2017.
