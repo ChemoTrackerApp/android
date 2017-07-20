@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:background="@drawable/border_symptom"
+              android:layout_marginRight="30dp"
+              android:padding="20dp" >
+
+    <ImageView
+        android:id="@+id/symptom_image"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/nausea_icon" >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/symptom_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/nausea"
+        android:layout_marginTop="5dp"
+        android:textColor="#555555"
+        android:textSize="16sp" >
+    </TextView>
+
+</LinearLayout>
