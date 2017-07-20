@@ -9,19 +9,17 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-//import com.github.sundeepk.compactcalendarview.domain.Event;
-
-public class EventArrayAdapter extends ArrayAdapter<CalendarEvent> {
+public class CalendarEventArrayAdapter extends ArrayAdapter<CalendarEvent> {
     private String title;
     private String location;
     private String startTime;
     private String endTime;
 
-    private ArrayList<CalendarEvent> objects;
+    private ArrayList<CalendarEvent> events;
 
-    public EventArrayAdapter(Context context, int textViewResourceId, ArrayList<CalendarEvent> objects) {
-        super(context, textViewResourceId, objects);
-        this.objects = objects;
+    public CalendarEventArrayAdapter(Context context, int textViewResourceId, ArrayList<CalendarEvent> events) {
+        super(context, textViewResourceId, events);
+        this.events = events;
     }
 
     public View getView(int position, View convertView, ViewGroup parent){
@@ -32,7 +30,7 @@ public class EventArrayAdapter extends ArrayAdapter<CalendarEvent> {
             v = inflater.inflate(R.layout.activity_event, null);
         }
 
-        CalendarEvent i = objects.get(position);
+        CalendarEvent i = events.get(position);
 
         if (i != null) {
             TextView title = (TextView) v.findViewById(R.id.title);
@@ -54,7 +52,6 @@ public class EventArrayAdapter extends ArrayAdapter<CalendarEvent> {
             }
         }
 
-        // the view must be returned to our activity
         return v;
     }
 
