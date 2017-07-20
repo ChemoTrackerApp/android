@@ -3,6 +3,11 @@ package com.innovare.chemotracker;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -42,7 +47,13 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView todaysEventsLV;
 
+    private BottomNavigationView bottomNavigation;
+
 //    private ScheduleCalendar scheduleCalendar;
+
+    //Fragment stuff
+    private Fragment fragment;
+    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +93,32 @@ public class MainActivity extends AppCompatActivity {
             todaysEvents.add(e);
         }
         adapter.notifyDataSetChanged();
+
+        bottomNavigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        bottomNavigation.inflateMenu(R.menu.bottom_menu);
+        BottomNavigationViewHelper.removeShiftMode(bottomNavigation);
+        fragmentManager = getSupportFragmentManager();
+        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                Log.d(TAG, item.toString());
+                switch (id){
+                    case R.id.action_track:
+                        fragment = new TrackFragment();
+                        break;
+                    case R.id.action_calendar:
+                        fragment = new CalendarFragment();
+                        break;
+                    case R.id.action_more:
+                        fragment = new MoreFragment();
+                        break;
+                }
+                final FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.main_container, fragment).commit();
+                return true;
+            }
+        });
     }
 
     List<CalendarEvent> getDummyCalendarEvents() {

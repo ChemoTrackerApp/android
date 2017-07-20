@@ -50,29 +50,29 @@ public class ProfileActivity extends AppCompatActivity {
         profileDiagnosis.setText("Breast Cancer");
         profileDrugAllergies.setText("None");
 
-        bottomNavigation.inflateMenu(R.menu.bottom_menu);
-		BottomNavigationViewHelper.removeShiftMode(bottomNavigation);
-        fragmentManager = getSupportFragmentManager();
-        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            int id = item.getItemId();
-            Log.d(TAG, item.toString());
-            switch (id){
-                case R.id.action_track:
-                    fragment = new TrackFragment();
-                    break;
-                case R.id.action_calendar:
-                    fragment = new CalendarFragment();
-                    break;
-                case R.id.action_more:
-                    fragment = new MoreFragment();
-                    break;
-            }
-            final FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.main_container, fragment).commit();
-            return true;
-            }
-        });
+//        bottomNavigation.inflateMenu(R.menu.bottom_menu);
+//		BottomNavigationViewHelper.removeShiftMode(bottomNavigation);
+//        fragmentManager = getSupportFragmentManager();
+//        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//            int id = item.getItemId();
+//            Log.d(TAG, item.toString());
+//            switch (id){
+//                case R.id.action_track:
+//                    fragment = new TrackFragment();
+//                    break;
+//                case R.id.action_calendar:
+//                    fragment = new CalendarFragment();
+//                    break;
+//                case R.id.action_more:
+//                    fragment = new MoreFragment();
+//                    break;
+//            }
+//            final FragmentTransaction transaction = fragmentManager.beginTransaction();
+//            transaction.replace(R.id.main_container, fragment).commit();
+//            return true;
+//            }
+//        });
     }
 }
