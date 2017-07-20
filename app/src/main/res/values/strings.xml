@@ -46,10 +46,9 @@
     <string name="vomit">Vomit</string>
     <string name="constipation">Constipation</string>
     <string name="fatigue">Fatigue</string>
-    
+
     <!-- Strings related to Calendar -->
     <string name="action_settings">Settings</string>
     <string name="action_today">Today</string>
-
->>>>>>> added_menu
+    
 </resources>
