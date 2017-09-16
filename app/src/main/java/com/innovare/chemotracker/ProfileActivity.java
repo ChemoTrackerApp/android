@@ -29,13 +29,8 @@ public class ProfileActivity extends AppCompatActivity {
     @InjectView(R.id.user_profile_name) TextView profileName;
     @InjectView(R.id.profile_full_name) TextView profileRealName;
     @InjectView(R.id.profile_up) LinearLayout profileUp;
-    @InjectView(R.id.bottom_navigation) BottomNavigationView bottomNavigation;
     @InjectView(R.id.profile_diagnosis) TextView profileDiagnosis;
     @InjectView(R.id.profile_drug_allergies) TextView profileDrugAllergies;
-
-    //Fragment stuff
-    private Fragment fragment;
-    private FragmentManager fragmentManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,30 +44,5 @@ public class ProfileActivity extends AppCompatActivity {
         profileRealName.setText("Carrie Bradshaw");
         profileDiagnosis.setText("Breast Cancer");
         profileDrugAllergies.setText("None");
-
-        bottomNavigation.inflateMenu(R.menu.bottom_menu);
-		BottomNavigationViewHelper.removeShiftMode(bottomNavigation);
-        fragmentManager = getSupportFragmentManager();
-        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            int id = item.getItemId();
-            Log.d(TAG, item.toString());
-            switch (id){
-                case R.id.action_track:
-                    fragment = new TrackFragment();
-                    break;
-                case R.id.action_calendar:
-                    fragment = new CalendarFragment();
-                    break;
-                case R.id.action_more:
-                    fragment = new MoreFragment();
-                    break;
-            }
-            final FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.main_container, fragment).commit();
-            return true;
-            }
-        });
     }
 }
