@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginTop="20dp"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:background="@drawable/track_rectangle"
+        android:padding="15dp"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:layout_gravity="center_horizontal"
+        android:text="Value"/>
+</FrameLayout>
