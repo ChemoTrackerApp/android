@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     @InjectView(R.id.bottom_navigation) BottomNavigationView bottomNavigation;
 
     //Fragment stuff
-    private Fragment fragment;
+    private Fragment fragment = new HomeFragment();
     private FragmentManager fragmentManager;
 
     @Override
@@ -47,29 +47,31 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.inflateMenu(R.menu.bottom_menu);
         BottomNavigationViewHelper.removeShiftMode(bottomNavigation);
         fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.main_container, fragment).commit();
 
         //bottom navigation menu, will change fragment as what is chosen
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             int id = item.getItemId();
+                Fragment selected = null;
             Log.d(TAG, item.toString());
             switch (id){
                 case R.id.action_home:
-                    fragment = new HomeFragment();
+                    selected = new HomeFragment();
                     break;
                 case R.id.action_track:
-                    fragment = new TrackFragment();
+                    selected = new TrackFragment();
                     break;
                 case R.id.action_calendar:
-                    fragment = new CalendarFragment();
+                    selected = new CalendarFragment();
                     break;
                 case R.id.action_more:
-                    fragment = new MoreFragment();
+                    selected = new MoreFragment();
                     break;
             }
             final FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.main_container, fragment).commit();
+            transaction.replace(R.id.main_container, selected).commit();
             return true;
             }
         });
