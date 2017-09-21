@@ -48,15 +48,13 @@ public class TrackFragment extends Fragment {
     protected RecyclerView mRecyclerView;
     protected TrackAdapter trackAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
-    protected String[] mDataset;
+    static final String[] SYMPTOMS = new String[] {
+            "Nausea", "Fatigue", "Constipation", "Vomit", "Diarrhea"
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Initialize dataset, this data would usually come from a local content provider or
-        // remote server.
-        initDataset();
     }
 
     @Override
@@ -72,7 +70,7 @@ public class TrackFragment extends Fragment {
         // elements are laid out.
         mLayoutManager = new LinearLayoutManager(getActivity());
 
-        trackAdapter = new TrackAdapter(mDataset);
+        trackAdapter = new TrackAdapter(SYMPTOMS);
         // Set CustomAdapter as the adapter for RecyclerView.
         mRecyclerView.setAdapter(trackAdapter);
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -85,15 +83,5 @@ public class TrackFragment extends Fragment {
     public void onSaveInstanceState(Bundle savedInstanceState) {
     }
 
-    /**
-     * Generates Strings for RecyclerView's adapter. This data would usually come
-     * from a local content provider or remote server.
-     */
-    private void initDataset() {
-        mDataset = new String[DATASET_COUNT];
-        for (int i = 0; i < DATASET_COUNT; i++) {
-            mDataset[i] = "This is element #" + i;
-        }
-    }
 }
 
