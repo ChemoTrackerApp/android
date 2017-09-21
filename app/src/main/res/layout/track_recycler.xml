@@ -15,5 +15,6 @@
         android:textAlignment="center"
         android:textSize="30sp"
         android:layout_gravity="center_horizontal"
+        android:textColor="#ffffff"
         android:text="Value"/>
 </FrameLayout>

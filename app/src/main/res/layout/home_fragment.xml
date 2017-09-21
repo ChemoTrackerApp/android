@@ -8,29 +8,32 @@
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#ffffff">
+        android:background="#f7f7f7">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginLeft="10dp"
-            android:id="@+id/layout_today">
-            <TextView
-                android:id="@+id/todays_date"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:text="99"
-                android:textAllCaps="true"
-                android:textColor="@color/black"
-                android:textSize="45pt" />
-
+            android:layout_height="wrap_content">
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/layout_today">
+                <TextView
+                    android:id="@+id/todays_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="27"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black"
+                    android:textSize="45pt" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginLeft="10dp">
                 <TextView
@@ -38,7 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="26dp"
-                    android:text="July"
+                    android:text="Sept"
                     android:textColor="@color/black"
                     android:textSize="19pt" />
                 <TextView
@@ -48,18 +51,24 @@
                     android:textAllCaps="true"
                     android:textColor="#868686"
                     android:textSize="8pt"
-                    android:text="Tuesday" />
+                    android:text="Wednesday" />
             </LinearLayout>
         </LinearLayout>
 
-        <ListView
-            android:id="@+id/todays_events"
+
+        <!--<ListView-->
+            <!--android:id="@+id/todays_events"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="200dp"-->
+            <!--android:background="@drawable/home_rectangle"-->
+            <!--android:layout_below="@+id/layout_today"-->
+            <!--android:layout_marginBottom="50dp"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_marginRight="20dp" />-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_below="@+id/layout_today"
-            android:layout_marginBottom="50dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 
